@@ -3,6 +3,7 @@ import 'package:complete_bloc_architecture/entities/default_error.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+//По сути часть виджет модели
 abstract class BlocContextBase<T extends BlocBase> {
   void subscribe(T bloc, BuildContext context);
 

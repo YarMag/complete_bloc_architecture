@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: RouteKeys.getInitialRoute(),
-      routes: AppNavigator.routes,
+      //зачем все сразу?
+      // routes: AppNavigator.routes, 
       onGenerateRoute: AppNavigator.onGenerateRoute,
     );
   }

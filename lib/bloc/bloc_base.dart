@@ -18,7 +18,7 @@ class BlocEvent<T> {
 abstract class BlocBase {
   final PublishSubject<BlocEvent> _uiEventsController =
   PublishSubject<BlocEvent>();
-  final List<StreamSubscription> cleanUpSubscribers = [];
+  final List<StreamSubscription> cleanUpSubscribers = []; //Compositeaubscription
 
   @protected
   Sink<BlocEvent> get inUiEvents => _uiEventsController.sink;
