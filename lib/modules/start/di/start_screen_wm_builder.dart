@@ -1,5 +1,6 @@
 import 'package:complete_bloc_architecture/modules/common/controllers/message_controller.dart';
 import 'package:complete_bloc_architecture/modules/common/error_handler/error_handler.dart';
+import 'package:complete_bloc_architecture/modules/start/coordinator/coordinator.dart';
 import 'package:flutter/material.dart';
 import 'package:mwwm/mwwm.dart';
 import '../../../services/startup/startup_service_interface.dart';
@@ -18,7 +19,7 @@ StartScreenWidgetModel createStartScreenWidgetModel(
 
   return StartScreenWidgetModel(
     dependencies,
-    Navigator.of(context),
+    Coordinator(context),
     scaffoldKey,
     service,
   );
