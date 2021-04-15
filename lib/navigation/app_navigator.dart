@@ -4,24 +4,31 @@ import 'package:complete_bloc_architecture/navigation/screen_args.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
+import 'route_keys.dart';
+import 'route_keys.dart';
+
 class AppNavigator {
-  static Map<String, Widget Function(BuildContext)> _routes;
+  static Map<String, Route Function(RouteSettings)> _routes;
   static Injector _injector;
-  static Map<String, Widget Function(BuildContext)> get routes => _routes;
+  static Map<String, Route Function(RouteSettings)> get routes => _routes;
 
   static void initialize({@required Injector injector}) {
     _injector = injector;
 
     _routes = {
-      RouteKeys.start: (BuildContext context) =>
-          injector.get<Widget>(key: RouteKeys.start),
-      RouteKeys.main: (BuildContext context) =>
-          injector.get<Widget>(key: RouteKeys.main)
+      RouteKeys.start: (RouteSettings rs) =>
+          injector.get<Route>(key: RouteKeys.start),
+      RouteKeys.main: (RouteSettings rs) =>
+          injector.get<Route>(key: RouteKeys.main)
     };
   }
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouteKeys.main : 
+        return _routes[RouteKeys.main](settings);
+      case RouteKeys.start:
+        return _routes[settings.name](settings);
       case RouteKeys.historyDetails:
         return MaterialPageRoute(
             builder: (BuildContext context) => _injector.get<Widget>(

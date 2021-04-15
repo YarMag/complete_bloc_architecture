@@ -32,6 +32,9 @@ dependencies:
   rxdart: ^0.25.0
   flutter_simple_dependency_injection: ^1.0.4
 
+  mwwm: ^0.1.3-dev.1
+  relation: ^0.0.4-dev.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
